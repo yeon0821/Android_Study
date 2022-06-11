@@ -10,6 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class Todo extends Fragment {
+public class Todo {
+    private  String todoName;
+
+    //생성자
+    public  Todo(String todoName){
+        this.todoName = todoName;
+    }
+
+    //getter
+    public String getTodoName(){
+        return todoName;
+    }
+
 
 }

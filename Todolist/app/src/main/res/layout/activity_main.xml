@@ -7,35 +7,37 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Todo List"
+        android:textSize="10pt"
+        android:layout_margin="20dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler1"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_margin="20dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/inputTodo"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="할 일을 입력하세요"
-            android:inputType="textMultiLine"/>
+            android:id="@+id/edit_todo_main"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="할 일을 적으세요"
+            android:layout_margin="20dp"/>
 
         <Button
-            android:id="@+id/saveButton"
-            android:layout_width="match_parent"
+            android:id="@+id/button_insert_main"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:text="저장"
-            android:backgroundTint="?android:attr/colorActivatedHighlight"/>
+            android:text="BUTTON"
+            android:layout_margin="20dp"/>
     </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="685dp">
-
-    </FrameLayout>
 
 </LinearLayout>

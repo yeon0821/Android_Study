@@ -19,10 +19,10 @@
         android:id="@+id/textview_todo_item"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/ic_delete_black_24dp"
         android:text="밥먹기"
-        android:textSize="10pt"
-        android:src ="@drawable/ic_delete_black_24dp"
-        android:layout_gravity="center_vertical"/>
+        android:textSize="10pt" />
 
     <ImageButton
         android:id="@+id/button_todo_item"

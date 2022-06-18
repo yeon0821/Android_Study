@@ -1,126 +1,168 @@
 package org.techtown.teamproject;
 
-import androidx.appcompat.app.ActionBar;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
-    DatePicker datePicker;
-    TextView  viewDatePick;
-    EditText edtDiary;
-    Button btnSave;
-
-    String fileName;
-    String readDay;
+    public String fname=null;
+    public String str=null;
+    public CalendarView calendarView;
+    public Button cha_Btn,del_Btn,save_Btn;
+    public TextView diaryTextView,textView2,textView3;
+    public EditText contextEditText;
 
     @Override
-    protected void onCreate(Bundle saveInstanceState) {
-        super.onCreate(saveInstanceState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setTitle("내장메모리에 일기를 저장하고 읽을 수 있는 간단한 일기장 앱");
+        calendarView=findViewById(R.id.calendarView);
+        diaryTextView=findViewById(R.id.diaryTextView);
+        save_Btn=findViewById(R.id.save_Btn);
+        del_Btn=findViewById(R.id.del_Btn);
+        cha_Btn=findViewById(R.id.cha_Btn);
+        textView2=findViewById(R.id.textView2);
+        textView3=findViewById(R.id.textView3);
+        contextEditText=findViewById(R.id.contextEditText);
+        //로그인 및 회원가입 엑티비티에서 이름을 받아옴
+        Intent intent=getIntent();
+        String name=intent.getStringExtra("userName");
+        final String userID=intent.getStringExtra("userID");
+        textView3.setText(name+"님의 Diary");
 
-
-        datePicker = (DatePicker) findViewById(R.id.datePicker);
-        viewDatePick = (TextView) findViewById(R.id.viewDatePick);
-        edtDiary = (EditText) findViewById(R.id.edtDiary);
-        btnSave = (Button) findViewById(R.id.btnSave);
-
-        Calendar c = Calendar.getInstance();
-        int cYear = c.get(Calendar.YEAR);
-        int cMonth = c.get(Calendar.MONTH);
-        int cDay = c.get(Calendar.DAY_OF_MONTH);
-
-        checkedDay(cYear, cMonth, cDay);
-
-        datePicker.init(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth(), new DatePicker.OnDateChangedListener() {
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
-            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                checkedDay(year,monthOfYear,dayOfMonth);
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                diaryTextView.setVisibility(View.VISIBLE);
+                save_Btn.setVisibility(View.VISIBLE);
+                contextEditText.setVisibility(View.VISIBLE);
+                textView2.setVisibility(View.INVISIBLE);
+                cha_Btn.setVisibility(View.INVISIBLE);
+                del_Btn.setVisibility(View.INVISIBLE);
+                diaryTextView.setText(String.format("%d / %d / %d",year,month+1,dayOfMonth));
+                contextEditText.setText("");
+                checkDay(year,month,dayOfMonth,userID);
             }
         });
-
-        btnSave.setOnClickListener(new View.OnClickListener() {
+        save_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                saveDiary(fileName);
+            public void onClick(View view) {
+                saveDiary(fname);
+                str=contextEditText.getText().toString();
+                textView2.setText(str);
+                save_Btn.setVisibility(View.VISIBLE);
+                cha_Btn.setVisibility(View.VISIBLE);
+                del_Btn.setVisibility(View.VISIBLE);
+                contextEditText.setVisibility(View.INVISIBLE);
+                textView2.setVisibility(View.VISIBLE);
+
+
             }
-
-            private void saveDiary(String fileName) {
-            }
-        }
-
-
-            private void checkedDay(int year, int monthOfYear, int dayOfMonth) {
-                viewDatePick.setText(year + " - " + monthOfYear + " - " + dayOfMonth);
-
-                fileName = year + "" + monthOfYear + "" + dayOfMonth + ".txt";
-
-                FileInputStream fis = null;
-                try {
-                    fis = openFileInput(fileName);
-
-                    byte[] fileDate = new byte[fis.available()];
-                    fis.read(fileDate);
-                    fis.close();
-
-                    String str = new String(fileDate, "EUC-KR");
-                    Toast.makeText(getApplicationContext(), "일기 써둔 날", Toast.LENGTH_SHORT).show();
-                    edtDiary.setText(str);
-                    btnSave.setText("수정하기");
-                }
-                catch (Exception e){
-                    Toast.makeText(getApplicationContext(), "일기 없는 날", Toast.LENGTH_SHORT).show();
-                    edtDiary.setText("");;
-                    btnSave.setText("새 일기 저장");
-                    e.printStackTrace();
-                }
-            }
-
-            // 일기 저장하는 메소드
-            private void saveDiary(String readDay) {
-
-                FileOutputStream fos = null;
-
-                try {
-                    fos = openFileOutput(readDay, MODE_NO_LOCALIZED_COLLATORS); //MODE_WORLD_WRITEABLE
-                    String content = edtDiary.getText().toString();
-
-                    // String.getBytes() = 스트링을 배열형으로 변환?
-                    fos.write(content.getBytes());
-                    //fos.flush();
-                    fos.close();
-
-                    // getApplicationContext() = 현재 클래스.this ?
-                    Toast.makeText(getApplicationContext(), "일기 저장됨", Toast.LENGTH_SHORT).show();
-
-                } catch (Exception e) { // Exception - 에러 종류 제일 상위 // FileNotFoundException , IOException
-                    e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), "오류오류", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-
-
-
-
-
-
-
-
-
-}
-
-    private void checkedDay(int cYear, int cMonth, int cDay) {
+        });
     }
+
+    public void  checkDay(int cYear,int cMonth,int cDay,String userID){
+        fname=""+userID+cYear+"-"+(cMonth+1)+""+"-"+cDay+".txt";//저장할 파일 이름설정
+        FileInputStream fis=null;//FileStream fis 변수
+
+        try{
+            fis=openFileInput(fname);
+
+            byte[] fileData=new byte[fis.available()];
+            fis.read(fileData);
+            fis.close();
+
+            str=new String(fileData);
+
+            contextEditText.setVisibility(View.INVISIBLE);
+            textView2.setVisibility(View.VISIBLE);
+            textView2.setText(str);
+
+            save_Btn.setVisibility(View.INVISIBLE);
+            cha_Btn.setVisibility(View.VISIBLE);
+            del_Btn.setVisibility(View.VISIBLE);
+
+            cha_Btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    contextEditText.setVisibility(View.VISIBLE);
+                    textView2.setVisibility(View.INVISIBLE);
+                    contextEditText.setText(str);
+
+                    save_Btn.setVisibility(View.VISIBLE);
+                    cha_Btn.setVisibility(View.INVISIBLE);
+                    del_Btn.setVisibility(View.INVISIBLE);
+                    textView2.setText(contextEditText.getText());
+                }
+
+            });
+            del_Btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    textView2.setVisibility(View.INVISIBLE);
+                    contextEditText.setText("");
+                    contextEditText.setVisibility(View.VISIBLE);
+                    save_Btn.setVisibility(View.VISIBLE);
+                    cha_Btn.setVisibility(View.INVISIBLE);
+                    del_Btn.setVisibility(View.INVISIBLE);
+                    removeDiary(fname);
+                }
+            });
+            if(textView2.getText()==null){
+                textView2.setVisibility(View.INVISIBLE);
+                diaryTextView.setVisibility(View.VISIBLE);
+                save_Btn.setVisibility(View.VISIBLE);
+                cha_Btn.setVisibility(View.INVISIBLE);
+                del_Btn.setVisibility(View.INVISIBLE);
+                contextEditText.setVisibility(View.VISIBLE);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    @SuppressLint("WrongConstant")
+    public void removeDiary(String readDay){
+        FileOutputStream fos=null;
+
+        try{
+            fos=openFileOutput(readDay,MODE_NO_LOCALIZED_COLLATORS);
+            String content="";
+            fos.write((content).getBytes());
+            fos.close();
+            
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    @SuppressLint("WrongConstant")
+    public void saveDiary(String readDay){
+        FileOutputStream fos=null;
+
+        try{
+            fos=openFileOutput(readDay,MODE_NO_LOCALIZED_COLLATORS);
+            String content=contextEditText.getText().toString();
+            fos.write((content).getBytes());
+            fos.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+}

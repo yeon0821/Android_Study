@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     public Button cha_Btn,del_Btn,save_Btn;
     public TextView diaryTextView,textView2,textView3;
     public EditText contextEditText;
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

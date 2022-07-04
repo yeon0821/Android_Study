@@ -3,25 +3,16 @@ package org.techtown.recyclerview_todolistintent;
 
 public class MainData {
 
-    private int iv_profile;
+
     private String tv_name;
 
 
 
-    public MainData(int iv_profile, String tv_name) {
-        this.iv_profile = iv_profile;
+    public MainData( String tv_name) {
+
         this.tv_name = tv_name;
     }
 
-    public int getIv_profile() {
-
-        return iv_profile;
-    }
-
-    public void setIv_profile(int iv_profile) {
-
-        this.iv_profile = iv_profile;
-    }
 
     public String getTv_name() {
 

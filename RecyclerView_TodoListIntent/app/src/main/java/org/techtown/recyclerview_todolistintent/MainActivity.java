@@ -45,12 +45,13 @@ public class MainActivity extends AppCompatActivity {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainData mainData = new MainData(R.drawable.img,et.getText().toString());
+                MainData mainData = new MainData(et.getText().toString());
                 arrayList.add(mainData);
                 mainAdapter.notifyDataSetChanged();
             }
         });
     }
+
 
     void moveSee(){
         Intent intent = new Intent(MainActivity.this, MainActivity2.class);

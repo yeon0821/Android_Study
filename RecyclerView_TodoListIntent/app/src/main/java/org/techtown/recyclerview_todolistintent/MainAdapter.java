@@ -46,7 +46,7 @@ class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull final MainAdapter.CustomViewHolder holder, int position) {
-        holder.iv_profile.setImageResource(arrayList.get(position).getIv_profile());
+
         holder.tv_name.setText(arrayList.get(position).getTv_name());
         holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -94,7 +94,7 @@ class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHolder> {
 
         public CustomViewHolder(View itemView) {
             super(itemView);
-            this.iv_profile = (ImageView) itemView.findViewById(R.id.iv_profile);
+
             this.tv_name = (TextView) itemView.findViewById(R.id.tv_name);
 
 

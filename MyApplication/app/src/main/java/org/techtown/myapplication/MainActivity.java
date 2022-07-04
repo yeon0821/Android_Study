@@ -8,10 +8,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EdgeEffect;
 import android.widget.EditText;
 
-import org.techtown.myapplication.data.API;
+import org.techtown.myapplication.data.PostAPI;
 import org.techtown.myapplication.data.ApiProvider;
 import org.techtown.myapplication.data.LoginRequest;
 import org.techtown.myapplication.data.LoginResponse;
@@ -22,7 +21,7 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private API api;
+    private PostAPI api;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         EditText id = findViewById(R.id.text_id);
         EditText password = findViewById(R.id.text_password);
 
-        api = ApiProvider.getRetrofit().create(API.class);
+        api = ApiProvider.getRetrofit().create(PostAPI.class);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -31,11 +31,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/btn_1"
         android:layout_width="346dp"
         android:layout_height="50dp"
         android:background="@drawable/edittext__rounded_corner_rectangle"
         android:text="작성완료"
-        android:textSize="20"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
@@ -43,4 +44,4 @@
         app:layout_constraintTop_toBottomOf="@+id/et2"
         app:layout_constraintVertical_bias="0.17" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>\
+</androidx.constraintlayout.widget.ConstraintLayout>

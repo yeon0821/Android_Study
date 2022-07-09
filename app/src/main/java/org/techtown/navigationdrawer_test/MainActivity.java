@@ -1,7 +1,6 @@
 package org.techtown.navigationdrawer_test;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {

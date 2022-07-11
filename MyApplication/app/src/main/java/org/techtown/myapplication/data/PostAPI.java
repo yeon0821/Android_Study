@@ -5,9 +5,10 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 public interface PostAPI {
-    @POST("/post")
-    Call<LoginResponse> login(@Body LoginRequest loginRequest);
-
+    @POST("post")
+    Call<LoginResponse> login(
+            @Body LoginRequest loginRequest
+    );
 }
 
 

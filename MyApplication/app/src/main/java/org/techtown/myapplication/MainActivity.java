@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
         api.login(loginRequest).enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                if(response.code() == 500){
-                    Log.d(TAG, "onResponse: 500");
+                if(response.isSuccessful()){
+                    Log.d(TAG, "onResponse: 성공");
                 }
             }
 

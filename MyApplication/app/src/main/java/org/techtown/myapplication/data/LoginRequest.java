@@ -19,7 +19,7 @@ public class LoginRequest {
         return accountId;
     }
 
-    public void setAccountId(String accountId) {
+    public void setAccountId(String accountId)  {
         this.accountId = accountId;
     }
 

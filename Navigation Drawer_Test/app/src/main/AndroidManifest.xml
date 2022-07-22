@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NavigationDrawer_test" >
+        <activity android:name=".MainActivity2"
+                    android:exported="true">
+
+        </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="true" >

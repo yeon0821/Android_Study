@@ -1,22 +1,15 @@
 package org.techtown.recyclerview_todolistintent;
 
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import org.techtown.recyclerview_todolistintent.MainActivity2;
-import org.techtown.recyclerview_todolistintent.MainAdapter;
-import org.techtown.recyclerview_todolistintent.MainData;
 
 import java.util.ArrayList;
 

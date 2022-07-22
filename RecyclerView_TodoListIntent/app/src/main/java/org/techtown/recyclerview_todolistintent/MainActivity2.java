@@ -1,5 +1,6 @@
 package org.techtown.recyclerview_todolistintent;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -10,10 +11,8 @@ import android.widget.TextView;
 public class MainActivity2 extends Activity {
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
     }
 }

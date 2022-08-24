@@ -1,0 +1,4 @@
+package Activity
+
+class MainActivity {
+}

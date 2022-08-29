@@ -4,7 +4,7 @@
 
 -----
 
-[MVVM](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b80d5fac-1483-4399-b154-e8c52fc3427d/Untitled.png)
+[Android](https://blog.yena.io/assets/post-img19/190316-mvvm-detail.png)
 
 # 🤔 패턴? 그게 뭐고 왜 적용하는 건데?
 
@@ -27,8 +27,6 @@
 # 👍🏻 MVVM 패턴은 무엇인가
 
 MVVM 패턴은 Model , View, ViewModel을 분리해 뷰에 모델간의 의존성을 줄여주도록 한다.
-
-[다이어그램](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b80d5fac-1483-4399-b154-e8c52fc3427d/Untitled.png)
 
 [안드로이드 공식문서 : 앱 아키텍처 가이드의 권장 앱 아키텍처 다이어그램](https://developer.android.com/jetpack/guide?gclid=Cj0KCQiA4b2MBhD2ARIsAIrcB-R6TL4d-KXTwXoLs-juzsvCadVFqBiP06TD6jHGsht9wfd4JtbR8kcaAo1YEALw_wcB&gclsrc=aw.ds#common-principles)
 

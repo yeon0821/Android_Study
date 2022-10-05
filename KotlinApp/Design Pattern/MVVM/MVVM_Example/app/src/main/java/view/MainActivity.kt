@@ -3,6 +3,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import com.Activity.R
 import com.Activity.databinding.ActivityMainBinding
@@ -14,9 +15,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mainBinding: ActivityMainBinding
     private val model : MainViewModel by viewModels()
 
-    public fun viewModels(): ReadOnlyProperty<MainActivity, MainViewModel> {
-        TODO("Not yet implemented")
-    }
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +31,6 @@ class MainActivity : AppCompatActivity() {
             var intent = Intent(this, SetMaxActivity::class.java)
             startActivity(intent)
             finish()
-    }
+        }
     }
 }

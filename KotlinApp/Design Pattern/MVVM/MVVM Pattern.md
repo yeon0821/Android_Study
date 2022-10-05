@@ -63,4 +63,4 @@ MVVM 패턴은 Model , View, ViewModel을 분리해 뷰에 모델간의 의존�
 
 # 💻 MVVM 패턴 적용 예제
 
-* [MVVM_Exampl](https://github.com/yeon0821/Android_Study/tree/main/KotlinApp/Design%20Pattern/MVVM/MVVM_Example)
+* [MVVM_Example](https://github.com/yeon0821/Android_Study/tree/main/KotlinApp/Design%20Pattern/MVVM/MVVM_Example)

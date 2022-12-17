@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Chapter02_LottoRaffle.iml" filepath="$PROJECT_DIR$/.idea/modules/Chapter02_LottoRaffle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Chapter02_LottoRaffle.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Chapter02_LottoRaffle.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Chapter02_LottoRaffle.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Chapter02_LottoRaffle.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Chapter02_LottoRaffle.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Chapter02_LottoRaffle.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Chapter02_LottoRaffle.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Chapter02_LottoRaffle.app.unitTest.iml" />
+    </modules>
+  </component>
+</project>

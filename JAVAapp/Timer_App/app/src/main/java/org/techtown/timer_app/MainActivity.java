@@ -13,6 +13,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
+
     LinearLayout timeCountSettingLV, timeCountLV;
     EditText hourET, minuteET, secondET;
     TextView hourTV, minuteTV, secondTV, finishTV;

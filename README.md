@@ -1,2 +1,1 @@
-# 
-Fuckin Android
+# Fuckin Android
